@@ -13,8 +13,9 @@
         <input type="text" id="store-name" name="store-name" />
         <label for="store-location">Location:</label>
         <input type="text" id="store-location" name="store-location" />
-        <input type="submit" value="Add Store" />
+        <input type="submit" value="Add Store" class="store-form-submit" />
       </form>
+
       <form class="add-aisle">
         <label for="aisle-name">Aisle Name:</label>
         <input type="text" id="aisle-name" name="aisle-name" />
@@ -25,8 +26,9 @@
           cols="30"
           rows="3"
         ></textarea>
-        <input type="submit" value="Add Aisle" />
+        <input type="submit" value="Add Aisle" class="aisle-form-submit" />
       </form>
+
       <form class="add-item">
         <label for="item-name">Item Name:</label>
         <input type="text" id="item-name" name="item-name" />
@@ -36,10 +38,10 @@
         <select name="item-store-location" id="item-store-location"></select>
         <label for="item-aisle">Aisle:</label>
         <select name="item-aisle" id="item-aisle"></select>
-        <input type="submit" value="Add Item" />
+        <input type="submit" value="Add Item" class="item-form-submit" />
       </form>
     </main>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     <script src="js/stores.js"></script>
   </body>
 </html>
