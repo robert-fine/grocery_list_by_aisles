@@ -1,14 +1,13 @@
-(function storeInputForm() {
-  const storeForm = document.querySelector(".add-store");
-  const storeName = document.querySelector("#store-name");
-  const storeLocation = document.getElementById("store-location");
+// BELOW DOES NOT WORK PROPERLY YET
+function checkForArr(arr) {
+  // if (localStorage.getItem(`${arr}`) === null) {
+  //   arr = [];
+  //   console.log(arr);
+  // } else {
+  //   arr = JSON.parse(localStorage.getItem(`${arr}`));
+  // }
 
-  storeForm.addEventListener("submit", function () {
-    addStore(storeName.value, storeLocation.value, event);
-  });
-})();
+  let existing = localStorage.getItem(arr);
 
-function addStore(name, location, e) {
-  e.preventDefault();
-  console.log(name, location);
+  existing = existing ? JSON.parse(existing) : [];
 }
