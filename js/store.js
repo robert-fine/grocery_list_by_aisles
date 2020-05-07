@@ -5,8 +5,8 @@ class Store {
     this.location = location;
   }
 
-  pushToLocStorageArr() {
-    checkForArr("storesArr");
+  pushToLocalStorageArr() {
+    checkForStoresArr();
     storesArr.push({
       name: this.name,
       id: this.id,
@@ -26,9 +26,18 @@ class Store {
 })();
 
 let storesArr;
-let storeIDcount = 0;
+let storeIDcount = +localStorage.getItem("storeIdCount");
 
 function addStore(name, location, e) {
   e.preventDefault();
   console.log(name, location);
+  let newStore = new Store(name, storeIDcount);
+}
+
+function checkForStoreArr() {
+  if (localStorage.getItem("storesArr") === null) {
+    storesArr = [];
+  } else {
+    storesArr = JSON.parse(localStorage.getItem("storesArr"));
+  }
 }
