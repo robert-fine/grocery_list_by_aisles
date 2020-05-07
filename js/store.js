@@ -5,13 +5,13 @@ class Store {
     this.location = location;
   }
 
-  pushToLocalStorageArr() {
-    checkForStoresArr();
+  pushToLocalStorage() {
     storesArr.push({
       name: this.name,
       id: this.id,
       location: this.location,
     });
+    localStorage.setItem("storesArr", JSON.stringify(storesArr));
   }
 }
 
@@ -22,22 +22,40 @@ class Store {
 
   storeForm.addEventListener("submit", function () {
     addStore(storeName.value, storeLocation.value, event);
+    storeForm.reset();
   });
 })();
 
 let storesArr;
-let storeIDcount = +localStorage.getItem("storeIdCount");
+let storeIDcount = +localStorage.getItem("storeIDcount");
 
 function addStore(name, location, e) {
   e.preventDefault();
-  console.log(name, location);
-  let newStore = new Store(name, storeIDcount);
+  let newStore = new Store(name, storeIDcount, location);
+  newStore.pushToLocalStorage();
+  storeIDcount++;
+  localStorage.setItem("storeIDcount", storeIDcount);
+
+  const itemStoreName = document.querySelector("#item-store");
+  itemStoreName.innerHTML = storeSelector();
+
+  const aisleStoreName = document.querySelector("#aisle-store");
+
+  aisleStoreName.innerHTML = storeSelector();
 }
 
-function checkForStoreArr() {
+(function checkLocalStorageForStoresArr() {
   if (localStorage.getItem("storesArr") === null) {
     storesArr = [];
   } else {
     storesArr = JSON.parse(localStorage.getItem("storesArr"));
   }
+})();
+
+function storeSelector() {
+  let stores = "";
+  storesArr.forEach((store) => {
+    stores += `<option value="${store.id}">${store.name} - ${store.location}</option>`;
+  });
+  return stores;
 }

@@ -8,7 +8,6 @@ class Item {
   }
 
   pushToLocalStorageArr() {
-    checkForItemsArr();
     storesArr.push({
       name: this.name,
       id: this.id,
@@ -22,9 +21,10 @@ class Item {
 (function itemInputForm() {
   const itemForm = document.querySelector(".add-item");
   const itemName = itemForm.querySelector("#item-name");
-  const itemStoreName = itemForm.querySelector("#item-store");
-  const itemStoreLocation = itemForm.querySelector("#item-store-location");
+  const itemStoreName = document.querySelector("#item-store");
   const itemAisle = itemForm.querySelector("#item-aisle");
+
+  itemStoreName.innerHTML = storeSelector();
 
   itemForm.addEventListener("submit", function () {
     addItem(
@@ -45,10 +45,10 @@ function addItem(name, storeName, storeLocation, aisleName, e) {
   console.log(name, storeName, storeLocation, aisleName);
 }
 
-function checkForItemsArr() {
+(function checkLocalStorageForItemsArr() {
   if (localStorage.getItem("itemsArr") === null) {
-    storesArr = [];
+    itemsArr = [];
   } else {
-    storesArr = JSON.parse(localStorage.getItem("itemsArr"));
+    itemsArr = JSON.parse(localStorage.getItem("itemsArr"));
   }
-}
+})();

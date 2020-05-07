@@ -7,7 +7,6 @@ class Aisle {
   }
 
   pushToLocalStorageArr() {
-    checkForAislesArr();
     ailesArr.push({
       name: this.name,
       id: this.id,
@@ -21,6 +20,9 @@ class Aisle {
   const aisleForm = document.querySelector(".add-aisle");
   const aisleName = aisleForm.querySelector("#aisle-name");
   const aisleDescription = aisleForm.querySelector("#aisle-description");
+  const storeLocation = document.querySelector("#aisle-store");
+
+  storeLocation.innerHTML = storeSelector();
 
   aisleForm.addEventListener("submit", function () {
     addAisle(aisleName.value, aisleDescription.value, event);
@@ -34,3 +36,11 @@ function addAisle(name, description, e) {
   e.preventDefault();
   console.log(name, description);
 }
+
+(function checkLocalStorageForAislesArr() {
+  if (localStorage.getItem("aislesArr") === null) {
+    aislesArr = [];
+  } else {
+    aislesArr = JSON.parse(localStorage.getItem("aislesArr"));
+  }
+})();

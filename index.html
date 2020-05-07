@@ -16,6 +16,8 @@
         <input type="submit" value="Add Store" class="store-form-submit" />
       </form>
 
+      <label for="aisle-store">Store:</label>
+      <select name="aisle-store" id="aisle-store"> </select>
       <form class="add-aisle">
         <label for="aisle-name">Aisle Name:</label>
         <input type="text" id="aisle-name" name="aisle-name" />
@@ -26,26 +28,31 @@
           cols="30"
           rows="3"
         ></textarea>
+        <!-- <label for="aisle-store">Store:</label>
+        <select name="aisle-store" id="aisle-store"> </select> -->
         <input type="submit" value="Add Aisle" class="aisle-form-submit" />
       </form>
 
+      <label for="item-store">Store:</label>
+      <select name="item-store" id="item-store"></select>
       <form class="add-item">
         <label for="item-name">Item Name:</label>
         <input type="text" id="item-name" name="item-name" />
-        <label for="item-store">Store:</label>
+        <!-- <label for="item-store">Store:</label>
         <select name="item-store" id="item-store"></select>
         <label for="item-store-location">Store Location:</label>
-        <select name="item-store-location" id="item-store-location"></select>
+        <select name="item-store-location" id="item-store-location"></select> -->
         <label for="item-aisle">Aisle:</label>
         <select name="item-aisle" id="item-aisle"></select>
+        <div class="addAnotherStore"></div>
         <input type="submit" value="Add Item" class="item-form-submit" />
       </form>
 
       <ul class="shopping-list"></ul>
     </main>
-    <script src="/js/app.js"></script>
-    <script src="/js/store.js"></script>
-    <script src="/js/aisle.js"></script>
-    <script src="/js/item.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/aisle.js"></script>
+    <script src="js/item.js"></script>
   </body>
 </html>
