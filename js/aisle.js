@@ -25,16 +25,24 @@ class Aisle {
   storeLocation.innerHTML = storeSelector();
 
   aisleForm.addEventListener("submit", function () {
-    addAisle(aisleName.value, aisleDescription.value, event);
+    addAisle(
+      aisleName.value,
+      aisleDescription.value,
+      storeLocation.value,
+      event
+    );
   });
 })();
 
 let aislesArr;
 let aisleIDcount = +localStorage.getItem("aislesIDcount");
 
-function addAisle(name, description, e) {
+function addAisle(name, description, store, e) {
   e.preventDefault();
-  console.log(name, description);
+  console.log(name, description, store);
+
+  const currentStore = storesArr.find((storeObj) => storeObj.id == store);
+  console.log(currentStore.id);
 }
 
 (function checkLocalStorageForAislesArr() {
